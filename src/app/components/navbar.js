@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 export default function Navbar() {
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div className="container-fluid">
         <a className="navbar-brand" href="#">
           <img src="/assets/img/top_logo_197x40.png" alt="..." width={197} height={40} className="d-inline-block align-text-top" />
