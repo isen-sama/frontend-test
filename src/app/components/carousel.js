@@ -8,10 +8,10 @@ export default function Carousel(){
             <img src="/assets/img/carousel-1.jpeg" layout="responsive" className="d-block w-2000" width={1920} height={960} alt="..." />
             </div>
             <div className="carousel-item" data-bs-interval="1500">
-            <img src="/assets/img/carousel-2.png" layout="responsive" className="d-block w-2000" width={1920} height={960} alt="..." />
+            <img src="/assets/img/carousel-2.jpg" layout="responsive" className="d-block w-2000" width={1920} height={960} alt="..." />
             </div>
             <div className="carousel-item" data-bs-interval="1500">
-            <img src="/assets/img/carousel-3.jpg" layout="responsive" className="d-block w-2000" width={1920} height={960} alt="..." />
+            <img src="/assets/img/carousel-3.png" layout="responsive" className="d-block w-2000" width={1920} height={960} alt="..." />
             </div>
         </div>
         <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
