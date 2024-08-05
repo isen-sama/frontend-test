@@ -28,10 +28,15 @@ export default function Navbar() {
                   About
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link active mx-2 fs-5 mt-2" href="/service">
+              <li className="nav-item dropdown mx-2 fs-5 mt-2">
+                <a className="nav-link dropdown-toggle" href="/service" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Service
-                </Link>
+                </a>
+                <ul className="dropdown-menu">
+                  <li><a className="dropdown-item" href="/service">Service</a></li>
+                  <li><hr className="dropdown-divider" /></li>
+                  <li><a className="dropdown-item" href="https://en.wikipedia.org/wiki/Bocchi_the_Rock!" target="_blank">Additional information</a></li>
+                </ul>
               </li>
               <li className="nav-item">
                 <Link className="nav-link active mx-2 fs-5 mt-2" href="/contact">
