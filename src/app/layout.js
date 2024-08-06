@@ -1,9 +1,10 @@
 import { Prompt } from "next/font/google";
 import "./globals.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.min.css';
 import Navbar from "./components/navbar";
 import BootstrapClient from "./components/BootstrapClient";
-import Footer from "./components/footer"
+import Footer from "./components/footer";
 
 const prompt = Prompt({ weight:['400','700'], subsets:["latin"] });
 

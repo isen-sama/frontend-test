@@ -1,10 +1,11 @@
+import Image from "next/image";
 import Link from "next/link";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function Navbar() {
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top " style={{backgroundColor: '#9cd1f8'}}>
         <div className="container-fluid">
         <a className="navbar-brand" href="#">
           <img src="/assets/img/top_logo_197x40.png" alt="..." width={197} height={40} className="d-inline-block align-text-top" />
@@ -45,12 +46,13 @@ export default function Navbar() {
               </li>
             </ul>
             <div className="d-flex">
-              <button className="btn btn-outline-primary mx-2 fs-5" type="submit">
-                SignUp
-              </button>
-              <button className="btn btn-outline-success mx-2 fs-5" type="submit">
-                SignIn
-              </button>
+              <Link href="/signup" className="btn btn-outline-primary mx-2 fs-5">
+                Sign Up
+              </Link>
+              <Link href="/signin" className="btn btn-outline-success mx-2 fs-5">
+                Sigh In
+              </Link>
+
             </div>
           </div>
         </div>
