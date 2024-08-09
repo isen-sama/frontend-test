@@ -10,6 +10,8 @@ export default function SignUp() {
 
   return (
     <>
+      <div style={{ backgroundColor: "#0d6efd", minHeight: "100vh" }}>
+      <div className="container d-flex justify-content-center align-items-center" style={{ minHeight: "100vh" }}>
       <br /><br /><br /><br /><br /><br /><br />
       <div className="container">
         <div className="card">
@@ -65,6 +67,8 @@ export default function SignUp() {
         </div>
       </div>
       <br /><br /><br /><br />
+      </div>
+      </div>
     </>
   );
 }
