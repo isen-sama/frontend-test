@@ -21,17 +21,17 @@ export default function Navbar() {
                   aria-current="page"
                   href="/"
                 >
-                  Home
+                  <i class="bi bi-house-fill"></i> Home
                 </Link>
               </li>
               <li className="nav-item frontsize">
                 <Link className="nav-link active mx-2 fs-5 mt-2" href="/about">
-                  About
+                <i class="bi bi-exclamation-circle-fill"></i> About
                 </Link>
               </li>
               <li className="nav-item dropdown mx-2 fs-5 mt-2">
                 <a className="nav-link dropdown-toggle" href="/service" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Service
+                <i class="bi bi-briefcase-fill"></i> Service
                 </a>
                 <ul className="dropdown-menu">
                   <li><a className="dropdown-item" href="/service">Service</a></li>
@@ -41,7 +41,7 @@ export default function Navbar() {
               </li>
               <li className="nav-item">
                 <Link className="nav-link active mx-2 fs-5 mt-2" href="/contact">
-                  Contact
+                <i class="bi bi-telephone-fill"></i> Contact
                 </Link>
               </li>
             </ul>

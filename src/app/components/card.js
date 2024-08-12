@@ -2,6 +2,7 @@ import Image from "next/image"
 
 export default function Card(){
     return(
+        <div style={{ backgroundColor: 'white', padding: '20px' }}>
         <div className="container-fluid">
             <div className="row">
                 <div className="col-md-4">
@@ -43,6 +44,7 @@ export default function Card(){
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     );
 }

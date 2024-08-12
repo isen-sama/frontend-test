@@ -1,36 +1,59 @@
-'use client'
-import { useState } from "react";
+'use client';
+import { useState } from 'react';
 
-export default function SighIn() {
+export default function SignIn() {
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
+
   return (
     <>
-      <br /><br /><br /><br /><br /><br /><br />
-      <div className="container">
-        <div>
-          <div className="card">
-            <h5 className="card-header text-center">Sign In</h5>
+      <div style={{ 
+        background: 'linear-gradient(to right, #B2A4FF, #FDF7C3)', 
+        padding: '20px', 
+        minHeight: '100vh',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
+      }}>
+        <div className="container d-flex justify-content-center align-items-center" style={{ width: '100%', maxWidth: '400px' }}>
+          <div className="card" style={{
+            boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)', // Enhanced shadow for card
+            borderRadius: '12px', // Slightly rounded corners
+            padding: '20px',
+            width: '100%'
+          }}>
+            <h5 className="card-header text-center" style={{ fontWeight: 'bold' }}>Sign In</h5>
             <div className="card-body">
               <div className="mb-3">
                 <label htmlFor="inputEmail" className="form-label">Email</label>
                 <div className="input-group">
-                  <div className="input-group-text"><i className="bi bi-envelope-fill"></i></div>
-                  <input type="email" className="form-control" id="inputEmail" placeholder="Email" />
+                  <div className="input-group-text" style={{ boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)' }}>
+                    <i className="bi bi-envelope-fill"></i>
+                  </div>
+                  <input 
+                    type="email" 
+                    className="form-control" 
+                    id="inputEmail" 
+                    placeholder="Email" 
+                    style={{ boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)' }}
+                  />
                 </div>
               </div>
               <div className="mb-3">
                 <label htmlFor="inputPassword" className="form-label">Password</label>
                 <div className="input-group">
-                  <div className="input-group-text"><i className="bi bi-key-fill"></i></div>
+                  <div className="input-group-text" style={{ boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)' }}>
+                    <i className="bi bi-key-fill"></i>
+                  </div>
                   <input
                     type={showPassword ? 'text' : 'password'}
                     className="form-control"
                     id="inputPassword"
                     placeholder="Password"
+                    style={{ boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)' }}
                   />
                   <button
                     type="button"
@@ -57,7 +80,6 @@ export default function SighIn() {
           </div>
         </div>
       </div>
-      <br /><br /><br />
     </>
   );
 }
