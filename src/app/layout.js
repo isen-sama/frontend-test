@@ -17,6 +17,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={prompt.className}><Navbar/>{children}<BootstrapClient/><Footer/></body>
+      
     </html>
   );
 }

@@ -2,11 +2,16 @@ import Image from "next/image";
 
 export default function About() {
   return (
+    <div style={{ 
+      background: 'linear-gradient(to right, #405D72, #758694)', 
+      padding: '20px', 
+      minHeight: '100vh',
+    }}>
     <div className="container-fluid">
-      <figure className="figure">
-        <img src="/assets/img/coming soon3.png" className="figure-img img-fluid rounded" alt="..." />
-        <figcaption className="figure-caption"></figcaption>
-      </figure>
+    <div>
+      
+    </div>
+    </div>
     </div>
   );
 }

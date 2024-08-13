@@ -1,12 +1,22 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function SignIn() {
   const [showPassword, setShowPassword] = useState(false);
+  const [animateCard, setAnimateCard] = useState(false);
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
+
+  useEffect(() => {
+    // Trigger the animation after the component mounts
+    const timer = setTimeout(() => {
+      setAnimateCard(true);
+    }, 100); // Small delay to ensure animation starts after the component is rendered
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <>
@@ -23,7 +33,10 @@ export default function SignIn() {
             boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)', // Enhanced shadow for card
             borderRadius: '12px', // Slightly rounded corners
             padding: '20px',
-            width: '100%'
+            width: '100%',
+            transform: animateCard ? 'translateY(0)' : 'translateY(-50px)',
+            opacity: animateCard ? 1 : 0,
+            transition: 'transform 0.5s ease-out, opacity 0.5s ease-out'
           }}>
             <h5 className="card-header text-center" style={{ fontWeight: 'bold' }}>Sign In</h5>
             <div className="card-body">
@@ -46,7 +59,7 @@ export default function SignIn() {
                 <label htmlFor="inputPassword" className="form-label">Password</label>
                 <div className="input-group">
                   <div className="input-group-text" style={{ boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)' }}>
-                    <i className="bi bi-key-fill"></i>
+                  <i class="bi bi-lock-fill"></i>
                   </div>
                   <input
                     type={showPassword ? 'text' : 'password'}
@@ -65,16 +78,30 @@ export default function SignIn() {
                 </div>
               </div>
               <div className="col-12">
-                <div className="form-check">
-                  <input className="form-check-input" type="checkbox" id="gridCheck" />
-                  <label className="form-check-label" htmlFor="gridCheck">
-                    Remember me
-                  </label>
+                <p className="text-body-secondary">
+                  Don't have an account?  <a href="/signup" className="text-primary">Sign Up</a>
+                </p>
+                <div className="col-12 d-grid gap-2">
+                  <button
+                    type="submit"
+                    className="btn btn-success"
+                    style={{
+                      transition: 'background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease',
+                      transform: 'scale(1)',
+                      boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)'
+                    }}
+                    onMouseOver={(e) => {
+                      e.currentTarget.style.transform = 'scale(1.05)';
+                      e.currentTarget.style.boxShadow = '0 6px 12px rgba(0, 0, 0, 0.3)';
+                    }}
+                    onMouseOut={(e) => {
+                      e.currentTarget.style.transform = 'scale(1)';
+                      e.currentTarget.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)';
+                    }}
+                  >
+                    Sign In
+                  </button>
                 </div>
-              </div>
-              <br />
-              <div className="col-12 d-grid gap-2">
-                <button type="submit" className="btn btn-success">Sign In</button>
               </div>
             </div>
           </div>

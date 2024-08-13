@@ -1,51 +1,32 @@
 import Image from "next/image";
 
 export default function Footer() {
+    const footerStyle = {
+        backgroundColor: 'rgba(255, 255, 255, 0.5)', // Semi-transparent white background
+        backdropFilter: 'blur(10px)', // Blurred background
+        border: 'none', // No border
+        borderRadius: '0', // No rounded corners
+        boxShadow: 'none', // No shadow
+        transition: 'background-color 0.3s ease', // Smooth transition for background color changes
+        zIndex: 1000, // Ensure footer is above other elements
+        position: 'relative', // Ensures proper positioning
+    };
+
+    const textStyle = {
+        color: '#000', // Ensure text is fully visible
+        margin: 0, // Remove default margins
+    };
+
     return (
-      <>
-        <div style={{ backgroundColor: 'white', padding: '20px' }}>
-        <div className="container">
-            <footer>
-                <div className="row">
-                    <div className="col-6 col-md-3 mb-2">
-                        <h5>About</h5>
-                        <ul className="nav flex-column">
-                            <form>
-                                <p className="text-body-secondary">This website is created to promote the anime bocchi the rock.</p>
-                            </form>
-                        </ul>
-                    </div>
-                    <div className="col-6 col-md-3 mb-2">
-                        <h5>Contact</h5>
-                        <ul className="nav flex-column">
-                            <form>
-                                <p className="text-body-secondary">No : 0123456789 <br />Email : maoanime@eiei.com</p>
-                            </form>
-                        </ul>
-                    </div>
-                    <div className="col-md-5 offset-md-1 mb-3">
-                        <form>
-                            <h5>Subscribe to our newsletter</h5>
-                            <p>Monthly digest of what's new and exciting from us.</p>
-                            <div className="d-flex flex-column flex-sm-row w-100 gap-2">
-                                <label htmlFor="newsletter1" className="visually-hidden">Email address</label>
-                                <input id="newsletter1" type="text" className="form-control" placeholder="Email address" />
-                                <button className="btn btn-primary" type="button">Subscribe</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div className="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
-                    <p>© 2024 MaoAnime Company, Inc. All rights reserved.</p>
-                    <ul className="list-unstyled d-flex">
-                        <li className="ms-3"><a className="link-body-emphasis" href="#"><svg className="bi" width={24} height={24}><use xlinkHref="#twitter" /></svg></a></li>
-                        <li className="ms-3"><a className="link-body-emphasis" href="#"><svg className="bi" width={24} height={24}><use xlinkHref="#instagram" /></svg></a></li>
-                        <li className="ms-3"><a className="link-body-emphasis" href="#"><svg className="bi" width={24} height={24}><use xlinkHref="#facebook" /></svg></a></li>
+        <div style={footerStyle}>
+            <div className="container-fluid">
+                <footer className="py-3 my-4">
+                    <ul className="nav justify-content-center border-bottom pb-3 mb-3">
+                        {/* Add footer links or content here if needed */}
                     </ul>
-                </div>
-            </footer>
+                    <p className="text-center" style={textStyle}>© Copyright 2024. Powered by MaoAnime</p>
+                </footer>
+            </div>
         </div>
-        </div>
-      </>
     );
 }
