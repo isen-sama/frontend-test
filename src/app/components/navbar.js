@@ -7,7 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 export default function Navbar() {
   // กำหนด style สำหรับ navbar
   const navbarStyle = {
-    backgroundColor: 'rgba(255, 255, 255, 0.8)', // โปร่งใส
+    backgroundColor: '#FFFFFFCC', // โปร่งใส
     backdropFilter: 'blur(10px)', // เบลอพื้นหลัง
     border: 'none', // ไม่มีขอบ
     borderRadius: '0', // ไม่มีมุมโค้งมน
