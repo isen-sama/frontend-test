@@ -10,8 +10,8 @@ import React from "react";
 const prompt = Prompt({ weight:['400','700'], subsets:["latin"] });
 
 export const metadata = {
-  title: "MaoAnime",
-  description: "Promote Anime by MaoAnime",
+  title: "MaoAnime | Promotional Anime ",
+  description: "Promotional Anime by MaoAnime",
 };
 
 export default function RootLayout({ children }) {
