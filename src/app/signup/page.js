@@ -131,7 +131,7 @@ export default function SignUp() {
                     </button>
                   </div>
                 </div>
-                <p className="text-center">
+                <p className="text">
                   Already have an account? <a href="/signin" className="text-primary">Sign In</a>
                 </p>
                 <div className="col-12 d-grid gap-2">
