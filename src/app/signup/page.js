@@ -1,57 +1,67 @@
 'use client';
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function SignUp() {
-  // States for password visibility
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-
-  // State for card animation
   const [animateCard, setAnimateCard] = useState(false);
 
-  // Function to toggle password visibility
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
 
-  // Function to toggle confirm password visibility
   const toggleConfirmPasswordVisibility = () => {
     setShowConfirmPassword(!showConfirmPassword);
   };
 
-  // Use effect to trigger animation
   useEffect(() => {
     const timer = setTimeout(() => {
       setAnimateCard(true);
-    }, 100); // Small delay to ensure animation starts after render
+    }, 100);
 
     return () => clearTimeout(timer);
   }, []);
 
-  // Styles for the card
   const cardStyles = {
     transform: animateCard ? 'translateY(0)' : 'translateY(-50px)',
     opacity: animateCard ? 1 : 0,
     transition: 'transform 0.5s ease-out, opacity 0.5s ease-out',
-    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', // Shadow for card
-    borderRadius: '8px', // Rounded corners
-    padding: '20px', // Padding inside the card
-    width: '100%', // Full width within the container
-    maxWidth: '500px' // Max width for the card
+    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+    borderRadius: '8px',
+    padding: '20px',
+    width: '100%',
+    maxWidth: '500px',
+    backgroundColor: 'rgba(255, 255, 255, 0.8)' // Semi-transparent background for readability
   };
 
   return (
     <>
       <div style={{ 
-        background: 'linear-gradient(to right, #ADA2FF, #F45050)', 
-        padding: '20px', 
-        minHeight: '100vh'
+        position: 'relative', 
+        height: '100vh',
+        overflow: 'hidden',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
       }}>
-        <div className="container d-flex justify-content-center align-items-center" style={{ minHeight: '100vh' }}>
-          <div 
-            className="card" 
-            style={cardStyles}
-          >
+        <video 
+          src="/assets/video/background.mp4" // Replace with the path to your video file
+          autoPlay
+          loop
+          muted
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            filter: 'blur(8px)',
+            zIndex: -1
+          }}
+        />
+        <div className="container d-flex justify-content-center align-items-center" style={{ zIndex: 1 }}>
+          <div className="card" style={cardStyles}>
             <h5 className="card-header text-center" style={{ fontWeight: 'bold' }}>Sign Up</h5>
             <div className="card-body">
               <form className="row g-3">

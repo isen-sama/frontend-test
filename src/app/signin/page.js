@@ -21,19 +21,37 @@ export default function SignIn() {
   return (
     <>
       <div style={{ 
-        background: 'linear-gradient(to right, #B2A4FF, #FDF7C3)', 
-        padding: '20px', 
-        minHeight: '100vh',
+        position: 'relative', 
+        height: '100vh',
+        overflow: 'hidden',
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        color: '#fff' // Ensures text is readable against the video
       }}>
+        <video 
+          src="/assets/video/background.mp4" // Replace with your video path
+          autoPlay
+          loop
+          muted
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            filter: 'blur(8px)',
+            zIndex: -1
+          }}
+        />
         <div className="container d-flex justify-content-center align-items-center" style={{ width: '100%', maxWidth: '400px' }}>
           <div className="card" style={{
             boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)', // Enhanced shadow for card
             borderRadius: '12px', // Slightly rounded corners
             padding: '20px',
             width: '100%',
+            backgroundColor: 'rgba(255, 255, 255, 0.8)', // Semi-transparent background for readability
             transform: animateCard ? 'translateY(0)' : 'translateY(-50px)',
             opacity: animateCard ? 1 : 0,
             transition: 'transform 0.5s ease-out, opacity 0.5s ease-out'
@@ -59,7 +77,7 @@ export default function SignIn() {
                 <label htmlFor="inputPassword" className="form-label">Password</label>
                 <div className="input-group">
                   <div className="input-group-text" style={{ boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)' }}>
-                  <i class="bi bi-lock-fill"></i>
+                    <i className="bi bi-lock-fill"></i>
                   </div>
                   <input
                     type={showPassword ? 'text' : 'password'}

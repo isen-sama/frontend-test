@@ -1,9 +1,29 @@
 'use client';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const BocchiTheRock = () => {
+  const [style, setStyle] = useState({
+    transform: 'translateY(100px)',
+    opacity: 0,
+    transition: 'transform 0.8s ease-out, opacity 0.8s ease-out'
+  });
+
+  useEffect(() => {
+    // Timer to ensure style changes after component mounts
+    const timer = setTimeout(() => {
+      setStyle({
+        transform: 'translateY(0)',
+        opacity: 1,
+        transition: 'transform 0.8s ease-out, opacity 0.8s ease-out'
+      });
+    }, 100); // Delay to ensure animation starts after component mounts
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <div style={{ 
+    <div
+      style={{ 
         position: 'relative',
         padding: '20px',
         minHeight: '100vh',
@@ -11,7 +31,9 @@ const BocchiTheRock = () => {
         justifyContent: 'center', 
         alignItems: 'center',
         overflow: 'hidden',
-      }}>
+        ...style
+      }}
+    >
       {/* Background Video */}
       <video
         src="/assets/video/background.mp4" // Replace with your video path
@@ -31,40 +53,40 @@ const BocchiTheRock = () => {
       />
       {/* Content */}
       <div style={{ 
-          backgroundColor: '#401a8c', 
-          color: 'white', 
-          borderRadius: '15px', 
-          overflow: 'hidden', 
-          boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.5)',
-          maxWidth: '900px',
-          width: '100%',
-          padding: '20px',
-          position: 'relative',
-          boxSizing: 'border-box',
-        }}>
+        backgroundColor: '#401a8c', 
+        color: 'white', 
+        borderRadius: '15px', 
+        overflow: 'hidden', 
+        boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.5)',
+        maxWidth: '900px',
+        width: '100%',
+        padding: '20px',
+        position: 'relative',
+        boxSizing: 'border-box',
+      }}>
         <h1 style={{ 
-            textAlign: 'center', 
-            marginBottom: '20px', 
-            fontSize: '2rem', // Use rem for responsiveness
-            letterSpacing: '1px',
-            textTransform: 'uppercase',
-            color: '#FFD700',
-            textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
-            fontFamily: 'Arial, sans-serif',
-            borderBottom: '2px solid #FFD700',
-            paddingBottom: '10px',
-            maxWidth: '800px',
-            margin: '0 auto',
-          }}><br/><br/>
+          textAlign: 'center', 
+          marginBottom: '20px', 
+          fontSize: '2rem', // Use rem for responsiveness
+          letterSpacing: '1px',
+          textTransform: 'uppercase',
+          color: '#FFD700',
+          textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
+          fontFamily: 'Arial, sans-serif',
+          borderBottom: '2px solid #FFD700',
+          paddingBottom: '10px',
+          maxWidth: '800px',
+          margin: '0 auto',
+        }}><br/><br/>
           Example Promote Bocchi the Rock!
         </h1>
         <div style={{ 
-            display: 'flex', 
-            flexDirection: 'column', // Stack items vertically on smaller screens
-            gap: '20px',
-            alignItems: 'center',
-            textAlign: 'center',
-          }}><br/>
+          display: 'flex', 
+          flexDirection: 'column', // Stack items vertically on smaller screens
+          gap: '20px',
+          alignItems: 'center',
+          textAlign: 'center',
+        }}><br/>
           <img 
             src="/assets/img/poster.png" 
             alt="Bocchi the Rock Poster"
@@ -88,12 +110,12 @@ const BocchiTheRock = () => {
             }}
           />
           <div style={{ 
-              textAlign: 'center', 
-              width: '100%',
-              borderRadius: '15px', 
-              backgroundColor: '#2d145a', 
-              padding: '15px'
-            }}>
+            textAlign: 'center', 
+            width: '100%',
+            borderRadius: '15px', 
+            backgroundColor: '#2d145a', 
+            padding: '15px'
+          }}>
             <iframe 
               width="100%" 
               height="500px" // Increased height for the video

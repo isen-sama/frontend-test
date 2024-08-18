@@ -10,63 +10,66 @@ const ContactUs = () => {
     }, []);
 
     const containerStyle = {
+        position: 'relative', // Ensure container is positioned relative for child positioning
+        zIndex: 1, // Ensure container is above the video
         display: 'flex',
         flexDirection: 'row',
         height: 'auto',
-        minHeight: '100vh',
+        maxWidth: '900px',
+        margin: '0 auto',
         fontFamily: 'Arial, sans-serif',
         backgroundColor: '#ffffffcc',
         padding: '20px',
         boxSizing: 'border-box',
         borderRadius: '10px',
         animation: isAnimated ? 'fadeIn 1s ease-out' : 'none',
-        flexWrap: 'wrap',  // Ensures responsiveness on small screens
+        flexWrap: 'wrap',
+    };
+
+    const panelStyle = {
+        flex: '1 1 45%',
+        padding: '20px',
+        borderRadius: '10px',
+        boxSizing: 'border-box',
+        transition: 'transform 0.3s ease-in-out, background-color 0.3s ease-in-out',
+        margin: '10px',
     };
 
     const leftPanelStyle = {
-        flex: '1 1 45%',  // Allows it to grow and shrink based on the screen size
+        ...panelStyle,
         backgroundColor: '#485566',
         color: 'white',
-        padding: '20px',
-        borderRadius: '10px',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'flex-start',
-        boxSizing: 'border-box',
-        transition: 'transform 0.3s ease-in-out, background-color 0.3s ease-in-out',
         transform: isAnimated ? 'translateY(0)' : 'translateY(20px)',
         opacity: isAnimated ? 1 : 0,
         animation: isAnimated ? 'slideIn 1s ease-out' : 'none',
-        margin: '10px',  // Add margin for spacing
     };
 
     const rightPanelStyle = {
-        flex: '1 1 45%',  // Allows it to grow and shrink based on the screen size
+        ...panelStyle,
         backgroundColor: 'white',
-        padding: '20px',
-        borderRadius: '10px',
         marginLeft: '20px',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
         boxSizing: 'border-box',
-        transition: 'transform 0.3s ease-in-out',
         transform: isAnimated ? 'translateY(0)' : 'translateY(20px)',
         opacity: isAnimated ? 1 : 0,
         animation: isAnimated ? 'slideIn 1s ease-out' : 'none',
-        margin: '10px',  // Add margin for spacing
     };
 
     const titleStyle = {
-        fontSize: '24px',  // Adjusted for better readability on mobile
+        fontSize: '24px',
         marginBottom: '10px',
         fontWeight: 'bold',
         transition: 'color 0.3s ease',
     };
 
     const textStyle = {
-        fontSize: '14px',  // Adjusted for better readability on mobile
+        fontSize: '14px',
         lineHeight: '1.5',
         marginBottom: '20px',
     };
@@ -75,7 +78,7 @@ const ContactUs = () => {
         display: 'flex',
         flexDirection: 'column',
         gap: '10px',
-        fontSize: '14px',  // Adjusted for better readability on mobile
+        fontSize: '14px',
     };
 
     const formStyle = {
@@ -99,7 +102,7 @@ const ContactUs = () => {
         borderRadius: '5px',
         border: '1px solid #DADCE0',
         width: '100%',
-        height: '100px',  // Adjusted for better fit on mobile
+        height: '100px',
         resize: 'none',
         transition: 'border-color 0.3s ease, box-shadow 0.3s ease',
     };
@@ -124,48 +127,69 @@ const ContactUs = () => {
 
     return (
         <div style={{ 
-            background: '#758694', 
-            padding: '20px',
-            minHeight: '50vh',
+            position: 'relative', 
+            minHeight: '90vh',
+            overflow: 'hidden',
             ...animationStyle,
-          }}>
-        <div style={containerStyle}>
-            <div style={leftPanelStyle} 
-                 onMouseEnter={() => { 
-                    document.querySelector('#leftPanel').style.transform = 'scale(1.02)';
-                    document.querySelector('#leftPanel').style.backgroundColor = '#4a5d6e';
-                 }}
-                 onMouseLeave={() => { 
-                    document.querySelector('#leftPanel').style.transform = 'scale(1)';
-                    document.querySelector('#leftPanel').style.backgroundColor = '#485566';
-                 }}
-                 id="leftPanel">
-                <h1 style={titleStyle}>Contact information</h1>
-                <p style={textStyle}>
-                Contact us about promoting the Bocchi the rock anime.
-                </p>
-                <div style={contactInfoStyle}>
-                    <p><i class="bi bi-telephone-fill"></i> 0123456789</p>
-                    <p><i class="bi bi-envelope-fill"></i> simple@mail.com</p>
+          }}
+        ><br/><br/><br/><br/><br/><br/><br/><br/>
+            <video 
+                src="/assets/video/background.mp4" // Replace with your video URL
+                autoPlay
+                loop
+                muted
+                style={{
+                    position: 'absolute',
+                    top: '0',
+                    left: '0',
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    filter: 'blur(8px)',
+                    zIndex: '-1',
+                }}
+            />
+            <div style={containerStyle}>
+                <div 
+                    style={leftPanelStyle} 
+                    onMouseEnter={() => { 
+                        document.querySelector('#leftPanel').style.transform = 'scale(1.02)';
+                        document.querySelector('#leftPanel').style.backgroundColor = '#4a5d6e';
+                    }}
+                    onMouseLeave={() => { 
+                        document.querySelector('#leftPanel').style.transform = 'scale(1)';
+                        document.querySelector('#leftPanel').style.backgroundColor = '#485566';
+                    }}
+                    id="leftPanel"
+                >
+                    <h1 style={titleStyle}>Contact Information</h1>
+                    <p style={textStyle}>
+                        Contact us about promoting the Bocchi the Rock anime.
+                    </p>
+                    <div style={contactInfoStyle}>
+                        <p><i className="bi bi-telephone-fill"></i> 0123456789</p>
+                        <p><i className="bi bi-envelope-fill"></i> simple@mail.com</p>
+                    </div>
+                </div>
+                <div 
+                    style={rightPanelStyle} 
+                    onMouseEnter={() => { 
+                        document.querySelector('#rightPanel').style.transform = 'scale(1.02)';
+                    }}
+                    onMouseLeave={() => { 
+                        document.querySelector('#rightPanel').style.transform = 'scale(1)';
+                    }}
+                    id="rightPanel"
+                >
+                    <h2 style={titleStyle}>Contact Us</h2>
+                    <form style={formStyle}>
+                        <input type="text" placeholder="Enter your full name" style={inputStyle} required />
+                        <input type="text" placeholder="Enter a subject" style={inputStyle} required />
+                        <textarea placeholder="Enter your message" style={textareaStyle} required></textarea>
+                        <button type="submit" style={buttonStyle}>Send Message</button>
+                    </form>
                 </div>
             </div>
-            <div style={rightPanelStyle} 
-                 onMouseEnter={() => { 
-                    document.querySelector('#rightPanel').style.transform = 'scale(1.02)';
-                 }}
-                 onMouseLeave={() => { 
-                    document.querySelector('#rightPanel').style.transform = 'scale(1)';
-                 }}
-                 id="rightPanel">
-                <h2 style={titleStyle}>ContactUs</h2>
-                <form style={formStyle}>
-                    <input type="text" placeholder="Enter your full name" style={inputStyle} required />
-                    <input type="text" placeholder="Enter a subject" style={inputStyle} required />
-                    <textarea placeholder="Enter your message" style={textareaStyle} required></textarea>
-                    <button type="submit" style={buttonStyle}>Send Message</button>
-                </form>
-            </div>
-        </div>
         </div>
     );
 };
