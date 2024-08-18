@@ -9,7 +9,8 @@ const BochiTheRock = () => {
       borderRadius: '10px',
       animation: 'fadeIn 1s ease-in-out',
       maxWidth: '100%',
-      boxSizing: 'border-box'
+      boxSizing: 'border-box',
+      minHeight: '90vh',
     }}>
       <style>
         {`
@@ -70,8 +71,8 @@ const BochiTheRock = () => {
         `}
       </style>
       <div style={{ marginBottom: '20px', animation: 'fadeIn 1.2s ease-in-out' }}>
-        <br/><br/><br/>
-        <h2 style={{ color: '#8c52ff', textAlign: 'center', animation: 'fadeIn 1.4s ease-in-out' }}>Characters</h2>
+        <br/><br/><br/><br/>
+        <h2 style={{ color: '#8c52ff', textAlign: 'center', animation: 'fadeIn 1.4s ease-in-out' }}>Characters</h2><br/><br/>
         <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', flexWrap: 'wrap' }} className="character-container">
           <div className="character-card" style={{ animation: 'fadeIn 1.6s ease-in-out' }}>
             <div style={{ borderRadius: 3, overflow: 'hidden' }}>
@@ -118,7 +119,7 @@ const BochiTheRock = () => {
           </div>
         </div>
       </div>
-
+      <br/><br/>
       <div style={{
         backgroundColor: '#401a8c',
         padding: '20px',
