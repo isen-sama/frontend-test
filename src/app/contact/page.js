@@ -1,72 +1,72 @@
-'use client';
+'use client'
 import React, { useEffect, useState } from 'react';
 
 const ContactUs = () => {
     const [isAnimated, setIsAnimated] = useState(false);
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
     useEffect(() => {
         // Trigger animation after component mounts
         setIsAnimated(true);
-
-        // Function to handle window resize
-        const handleResize = () => setWindowWidth(window.innerWidth);
-
-        // Add event listener for window resize
-        window.addEventListener('resize', handleResize);
-
-        // Clean up the event listener on component unmount
-        return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    // Define responsive styles
     const containerStyle = {
         display: 'flex',
-        flexDirection: windowWidth < 768 ? 'column' : 'row',
-        flexWrap: 'wrap', // Allow wrapping for smaller screens
+        flexDirection: 'row',
         height: 'auto',
+        minHeight: '100vh',
         fontFamily: 'Arial, sans-serif',
         backgroundColor: '#ffffffcc',
         padding: '20px',
         boxSizing: 'border-box',
         borderRadius: '10px',
         animation: isAnimated ? 'fadeIn 1s ease-out' : 'none',
+        flexWrap: 'wrap',  // Ensures responsiveness on small screens
     };
 
-    const panelStyle = {
-        flex: 1,
-        minWidth: '300px', // Ensure minimum width on small screens
-        padding: windowWidth < 768 ? '10px' : '20px',
+    const leftPanelStyle = {
+        flex: '1 1 45%',  // Allows it to grow and shrink based on the screen size
+        backgroundColor: '#485566',
+        color: 'white',
+        padding: '20px',
         borderRadius: '10px',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'flex-start',
         boxSizing: 'border-box',
         transition: 'transform 0.3s ease-in-out, background-color 0.3s ease-in-out',
         transform: isAnimated ? 'translateY(0)' : 'translateY(20px)',
         opacity: isAnimated ? 1 : 0,
         animation: isAnimated ? 'slideIn 1s ease-out' : 'none',
-    };
-
-    const leftPanelStyle = {
-        ...panelStyle,
-        backgroundColor: '#485566',
-        color: 'white',
-        marginRight: windowWidth < 768 ? '0' : '20px',
+        margin: '10px',  // Add margin for spacing
     };
 
     const rightPanelStyle = {
-        ...panelStyle,
+        flex: '1 1 45%',  // Allows it to grow and shrink based on the screen size
         backgroundColor: 'white',
-        marginLeft: windowWidth < 768 ? '0' : '20px',
+        padding: '20px',
+        borderRadius: '10px',
+        marginLeft: '20px',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        boxSizing: 'border-box',
+        transition: 'transform 0.3s ease-in-out',
+        transform: isAnimated ? 'translateY(0)' : 'translateY(20px)',
+        opacity: isAnimated ? 1 : 0,
+        animation: isAnimated ? 'slideIn 1s ease-out' : 'none',
+        margin: '10px',  // Add margin for spacing
     };
 
     const titleStyle = {
-        fontSize: windowWidth < 768 ? '24px' : '36px', // Adjust font size for smaller screens
-        marginBottom: '15px',
+        fontSize: '24px',  // Adjusted for better readability on mobile
+        marginBottom: '10px',
         fontWeight: 'bold',
         transition: 'color 0.3s ease',
     };
 
     const textStyle = {
-        fontSize: windowWidth < 768 ? '14px' : '16px', // Adjust font size for smaller screens
+        fontSize: '14px',  // Adjusted for better readability on mobile
         lineHeight: '1.5',
         marginBottom: '20px',
     };
@@ -75,7 +75,7 @@ const ContactUs = () => {
         display: 'flex',
         flexDirection: 'column',
         gap: '10px',
-        fontSize: windowWidth < 768 ? '14px' : '16px', // Adjust font size for smaller screens
+        fontSize: '14px',  // Adjusted for better readability on mobile
     };
 
     const formStyle = {
@@ -86,7 +86,7 @@ const ContactUs = () => {
 
     const inputStyle = {
         padding: '10px',
-        fontSize: windowWidth < 768 ? '14px' : '16px', // Adjust font size for smaller screens
+        fontSize: '14px',
         borderRadius: '5px',
         border: '1px solid #DADCE0',
         width: '100%',
@@ -95,18 +95,18 @@ const ContactUs = () => {
 
     const textareaStyle = {
         padding: '10px',
-        fontSize: windowWidth < 768 ? '14px' : '16px', // Adjust font size for smaller screens
+        fontSize: '14px',
         borderRadius: '5px',
         border: '1px solid #DADCE0',
         width: '100%',
-        height: windowWidth < 768 ? '120px' : '150px', // Adjust height for smaller screens
+        height: '100px',  // Adjusted for better fit on mobile
         resize: 'none',
         transition: 'border-color 0.3s ease, box-shadow 0.3s ease',
     };
 
     const buttonStyle = {
         padding: '10px',
-        fontSize: windowWidth < 768 ? '14px' : '16px', // Adjust font size for smaller screens
+        fontSize: '14px',
         borderRadius: '5px',
         border: 'none',
         backgroundColor: '#1A73E8',
@@ -125,10 +125,10 @@ const ContactUs = () => {
     return (
         <div style={{ 
             background: '#758694', 
-            padding: windowWidth < 768 ? '10px' : '20px', // Adjust padding for smaller screens
+            padding: '20px',
             minHeight: '50vh',
             ...animationStyle,
-          }}><br/><br/><br/>
+          }}>
         <div style={containerStyle}>
             <div style={leftPanelStyle} 
                  onMouseEnter={() => { 
@@ -140,9 +140,9 @@ const ContactUs = () => {
                     document.querySelector('#leftPanel').style.backgroundColor = '#485566';
                  }}
                  id="leftPanel">
-                <h1 style={titleStyle}>Contact Information</h1>
+                <h1 style={titleStyle}>Contact information</h1>
                 <p style={textStyle}>
-                Contact us about promoting the Bocchi the Rock anime.
+                Contact us about promoting the Bocchi the rock anime.
                 </p>
                 <div style={contactInfoStyle}>
                     <p>📞 0123456789</p>
@@ -157,7 +157,7 @@ const ContactUs = () => {
                     document.querySelector('#rightPanel').style.transform = 'scale(1)';
                  }}
                  id="rightPanel">
-                <h2 style={titleStyle}>Contact Us</h2>
+                <h2 style={titleStyle}>ContactUs</h2>
                 <form style={formStyle}>
                     <input type="text" placeholder="Enter your full name" style={inputStyle} required />
                     <input type="text" placeholder="Enter a subject" style={inputStyle} required />
