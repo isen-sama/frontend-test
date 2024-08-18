@@ -1,65 +1,119 @@
-import Image from 'next/image';
+'use client';
+import React from 'react';
 
-export default function Carousel() {
-    // Inline style for the carousel container
-    const carouselStyle = {
-        maxWidth: '100%',
-        margin: '0 auto',
+const BocchiTheRock = () => {
+  return (
+    <div style={{ 
         position: 'relative',
-    };
-
-    // Inline style for the images
-    const imageStyle = {
-        borderRadius: '15px', // Adjust the value as needed
-        width: '100%', // Make sure the image scales with the container
-        height: 'auto', // Maintain aspect ratio
-    };
-
-    return (
-        <div id="carouselExampleAutoplaying" className="carousel slide" data-bs-ride="carousel" style={carouselStyle}>
-            <div className="carousel-inner">
-                <div className="carousel-item active" data-bs-interval="1500">
-                    <Image 
-                        src="/assets/img/carousel_1.jpg" 
-                        layout="responsive" 
-                        className="d-block" 
-                        width={1920} 
-                        height={960} 
-                        alt="Carousel Image 1" 
-                        style={imageStyle} 
-                    />
-                </div>
-                <div className="carousel-item" data-bs-interval="1500">
-                    <Image 
-                        src="/assets/img/carousel_2.jpg" 
-                        layout="responsive" 
-                        className="d-block" 
-                        width={1920} 
-                        height={960} 
-                        alt="Carousel Image 2" 
-                        style={imageStyle} 
-                    />
-                </div>
-                <div className="carousel-item" data-bs-interval="1500">
-                    <Image 
-                        src="/assets/img/carousel_3.png" 
-                        layout="responsive" 
-                        className="d-block" 
-                        width={1920} 
-                        height={960} 
-                        alt="Carousel Image 3" 
-                        style={imageStyle} 
-                    />
-                </div>
-            </div>
-            <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-                <span className="carousel-control-prev-icon" aria-hidden="true" />
-                <span className="visually-hidden">Previous</span>
-            </button>
-            <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-                <span className="carousel-control-next-icon" aria-hidden="true" />
-                <span className="visually-hidden">Next</span>
-            </button>
+        padding: '20px',
+        minHeight: '100vh',
+        display: 'flex', 
+        justifyContent: 'center', 
+        alignItems: 'center',
+        overflow: 'hidden',
+      }}>
+      {/* Background Video */}
+      <video
+        src="/assets/video/background.mp4" // Replace with your video path
+        autoPlay
+        muted
+        loop
+        style={{
+          position: 'absolute',
+          top: '0',
+          left: '0',
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          filter: 'blur(8px)',
+          zIndex: '-1',
+        }}
+      />
+      {/* Content */}
+      <div style={{ 
+          backgroundColor: '#401a8c', 
+          color: 'white', 
+          borderRadius: '15px', 
+          overflow: 'hidden', 
+          boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.5)',
+          maxWidth: '900px',
+          width: '100%',
+          padding: '20px',
+          position: 'relative',
+          boxSizing: 'border-box',
+        }}>
+        <h1 style={{ 
+            textAlign: 'center', 
+            marginBottom: '20px', 
+            fontSize: '2rem', // Use rem for responsiveness
+            letterSpacing: '1px',
+            textTransform: 'uppercase',
+            color: '#FFD700',
+            textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
+            fontFamily: 'Arial, sans-serif',
+            borderBottom: '2px solid #FFD700',
+            paddingBottom: '10px',
+            maxWidth: '800px',
+            margin: '0 auto',
+          }}><br/><br/>
+          Example Promote Bocchi the Rock!
+        </h1>
+        <div style={{ 
+            display: 'flex', 
+            flexDirection: 'column', // Stack items vertically on smaller screens
+            gap: '20px',
+            alignItems: 'center',
+            textAlign: 'center',
+          }}><br/>
+          <img 
+            src="/assets/img/poster.png" 
+            alt="Bocchi the Rock Poster"
+            style={{ 
+              height: 'auto',
+              width: '100%',
+              maxWidth: '300px', // Reduced max-width for the poster
+              borderRadius: '15px', 
+              boxShadow: '0px 8px 15px rgba(0, 0, 0, 0.4)',
+              transform: 'rotateY(-10deg) rotateX(5deg)',
+              transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+              perspective: '1000px',
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.transform = 'rotateY(0deg) rotateX(0deg) scale(1.05)';
+              e.currentTarget.style.boxShadow = '0px 12px 25px rgba(0, 0, 0, 0.6)';
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.transform = 'rotateY(-10deg) rotateX(5deg)';
+              e.currentTarget.style.boxShadow = '0px 8px 15px rgba(0, 0, 0, 0.4)';
+            }}
+          />
+          <div style={{ 
+              textAlign: 'center', 
+              width: '100%',
+              borderRadius: '15px', 
+              backgroundColor: '#2d145a', 
+              padding: '15px'
+            }}>
+            <iframe 
+              width="100%" 
+              height="500px" // Increased height for the video
+              src="https://www.youtube.com/embed/3jPFr94OxXY?autoplay=1&mute=1" 
+              title="YouTube video player" 
+              frameBorder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowFullScreen
+              style={{ borderRadius: '15px', marginBottom: '15px' }}
+            />
+            <p style={{ fontStyle: 'italic', lineHeight: '1.6', color: '#ddd' }}>
+              Hitori "Bocchi-chan" Gotoh is a lonely high school girl whose heart lies in her guitar. 
+              One day, she meets Nijika Ijichi and joins 'Kessoku Band'. 
+              After that, her daily life starts to change little by little.
+            </p>
+          </div>
         </div>
-    );
-}
+      </div>
+    </div>
+  );
+};
+
+export default BocchiTheRock;

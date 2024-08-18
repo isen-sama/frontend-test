@@ -145,8 +145,8 @@ const ContactUs = () => {
                 Contact us about promoting the Bocchi the rock anime.
                 </p>
                 <div style={contactInfoStyle}>
-                    <p>📞 0123456789</p>
-                    <p>✉️ simple@mail.com</p>
+                    <p><i class="bi bi-telephone-fill"></i> 0123456789</p>
+                    <p><i class="bi bi-envelope-fill"></i> simple@mail.com</p>
                 </div>
             </div>
             <div style={rightPanelStyle} 
