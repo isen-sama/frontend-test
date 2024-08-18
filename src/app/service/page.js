@@ -9,14 +9,13 @@ const BocchiTheRock = () => {
   });
 
   useEffect(() => {
-    // Timer to ensure style changes after component mounts
     const timer = setTimeout(() => {
       setStyle({
         transform: 'translateY(0)',
         opacity: 1,
         transition: 'transform 0.8s ease-out, opacity 0.8s ease-out'
       });
-    }, 100); // Delay to ensure animation starts after component mounts
+    }, 100);
 
     return () => clearTimeout(timer);
   }, []);
@@ -36,7 +35,7 @@ const BocchiTheRock = () => {
     >
       {/* Background Video */}
       <video
-        src="/assets/video/background.mp4" // Replace with your video path
+        src="/assets/video/background.mp4" 
         autoPlay
         muted
         loop
@@ -59,15 +58,16 @@ const BocchiTheRock = () => {
         overflow: 'hidden', 
         boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.5)',
         maxWidth: '900px',
-        width: '100%',
-        padding: '20px',
+        width: '50%',
+        padding: '10px',
         position: 'relative',
         boxSizing: 'border-box',
+        marginTop: '60px', // Adjust this if your navbar height is different
       }}>
         <h1 style={{ 
           textAlign: 'center', 
           marginBottom: '20px', 
-          fontSize: '2rem', // Use rem for responsiveness
+          fontSize: '2rem',
           letterSpacing: '1px',
           textTransform: 'uppercase',
           color: '#FFD700',
@@ -77,23 +77,23 @@ const BocchiTheRock = () => {
           paddingBottom: '10px',
           maxWidth: '800px',
           margin: '0 auto',
-        }}><br/><br/>
+        }}><br/>
           Example Promote Bocchi the Rock!
-        </h1>
+        </h1><br/>
         <div style={{ 
           display: 'flex', 
-          flexDirection: 'column', // Stack items vertically on smaller screens
+          flexDirection: 'column',
           gap: '20px',
           alignItems: 'center',
           textAlign: 'center',
-        }}><br/>
+        }}>
           <img 
             src="/assets/img/poster.png" 
             alt="Bocchi the Rock Poster"
             style={{ 
               height: 'auto',
               width: '100%',
-              maxWidth: '300px', // Reduced max-width for the poster
+              maxWidth: '300px',
               borderRadius: '15px', 
               boxShadow: '0px 8px 15px rgba(0, 0, 0, 0.4)',
               transform: 'rotateY(-10deg) rotateX(5deg)',
@@ -118,7 +118,7 @@ const BocchiTheRock = () => {
           }}>
             <iframe 
               width="100%" 
-              height="500px" // Increased height for the video
+              height="500px"
               src="https://www.youtube.com/embed/3jPFr94OxXY?autoplay=1&mute=1" 
               title="YouTube video player" 
               frameBorder="0" 
