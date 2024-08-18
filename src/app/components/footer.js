@@ -25,7 +25,7 @@ export default function Footer() {
                         <li className="ms-3"><a className="text-body-secondary" href="#"><i className="bi bi-twitter"></i></a></li>
                         <li className="ms-3"><a className="text-body-secondary" href="#"><i className="bi bi-discord"></i></a></li>
                     </ul>
-                    <p className="text-center text-body-secondary">© 2024 Maocode Company, Inc</p>
+                    <p className="text-center text-body-secondary">© 2024 MaoAnime Company, Inc</p>
                 </footer>
             </div>
         </div>
