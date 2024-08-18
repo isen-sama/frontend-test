@@ -10,7 +10,7 @@ import React from "react";
 const prompt = Prompt({ weight:['400','700'], subsets:["latin"] });
 
 export const metadata = {
-  title: "Maoanime",
+  title: "MaoAnime",
   description: "Promote Anime by MaoAnime",
 };
 
