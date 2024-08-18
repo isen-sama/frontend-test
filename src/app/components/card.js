@@ -53,7 +53,7 @@ export default function Card() {
                             <p className="card-text">
                                 Kyuuzou Band’s new song “Now, I, From the Underground” has been chosen as the ending theme for the first part of “Theatrical Compilation Bocchi the Rock!”
                             </p>
-                            <br /><br />
+                            <br />
                             <a 
                                 href="https://bocchi.rocks" 
                                 target="_blank" 
