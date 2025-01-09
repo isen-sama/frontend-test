@@ -28,6 +28,7 @@ const BochiTheRock = () => {
             max-width: 120px;
             margin: 10px;
             border-radius: 5px;
+            flex: 1 1 auto;
           }
 
           .character-card:hover {
@@ -54,7 +55,16 @@ const BochiTheRock = () => {
             color: white;
           }
 
-          @media (max-width: 600px) {
+          .character-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            padding-bottom: 10px;
+          }
+
+          @media (max-width: 768px) {
             .character-card {
               max-width: 90px;
             }
@@ -64,16 +74,31 @@ const BochiTheRock = () => {
             }
 
             .character-container {
-              flex-direction: column;
-              align-items: center;
+              justify-content: space-between;
+              flex-wrap: nowrap;
+            }
+          }
+
+          @media (max-width: 480px) {
+            .character-card {
+              max-width: 80px;
+            }
+
+            .character-card span {
+              font-size: xx-small;
+            }
+
+            h2 {
+              font-size: 1.5rem;
             }
           }
         `}
       </style>
+
       <div style={{ marginBottom: '20px', animation: 'fadeIn 1.2s ease-in-out' }}>
         <br/><br/><br/><br/>
         <h2 style={{ color: '#8c52ff', textAlign: 'center', animation: 'fadeIn 1.4s ease-in-out' }}>Characters</h2><br/><br/>
-        <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', flexWrap: 'wrap' }} className="character-container">
+        <div className="character-container">
           <div className="character-card" style={{ animation: 'fadeIn 1.6s ease-in-out' }}>
             <div style={{ borderRadius: 3, overflow: 'hidden' }}>
               <a href="#" title="Hitori Gotoh">
@@ -119,6 +144,7 @@ const BochiTheRock = () => {
           </div>
         </div>
       </div>
+      
       <br/><br/>
       <div style={{
         backgroundColor: '#401a8c',
