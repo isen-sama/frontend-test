@@ -57,9 +57,9 @@ const BocchiTheRock = () => {
         borderRadius: '15px', 
         overflow: 'hidden', 
         boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.5)',
+        width: '90%',  // Use relative width for responsiveness
         maxWidth: '900px',
-        width: '50%',
-        padding: '10px',
+        padding: '20px',
         position: 'relative',
         boxSizing: 'border-box',
         marginTop: '60px', // Adjust this if your navbar height is different
@@ -67,7 +67,7 @@ const BocchiTheRock = () => {
         <h1 style={{ 
           textAlign: 'center', 
           marginBottom: '20px', 
-          fontSize: '2rem',
+          fontSize: '2.5rem',  // Increase size for larger screens
           letterSpacing: '1px',
           textTransform: 'uppercase',
           color: '#FFD700',
@@ -75,24 +75,23 @@ const BocchiTheRock = () => {
           fontFamily: 'Arial, sans-serif',
           borderBottom: '2px solid #FFD700',
           paddingBottom: '10px',
-          maxWidth: '800px',
           margin: '0 auto',
-        }}><br/>
+        }}>
           Example Promote Bocchi the Rock!
-        </h1><br/>
+        </h1>
         <div style={{ 
           display: 'flex', 
           flexDirection: 'column',
           gap: '20px',
           alignItems: 'center',
           textAlign: 'center',
-        }}>
+        }}><br/>
           <img 
             src="/assets/img/poster.png" 
             alt="Bocchi the Rock Poster"
             style={{ 
               height: 'auto',
-              width: '100%',
+              width: '80%',
               maxWidth: '300px',
               borderRadius: '15px', 
               boxShadow: '0px 8px 15px rgba(0, 0, 0, 0.4)',
@@ -134,6 +133,43 @@ const BocchiTheRock = () => {
           </div>
         </div>
       </div>
+
+      {/* Responsive Styles */}
+      <style jsx>{`
+        @media (max-width: 768px) {
+          h1 {
+            font-size: 1.8rem; /* Smaller font on small screens */
+          }
+
+          .content {
+            width: 100%;
+            padding: 15px;
+          }
+
+          iframe {
+            height: 300px; /* Adjust video iframe height */
+          }
+
+          img {
+            width: 100%;
+            max-width: none; /* Let image fill the container */
+          }
+        }
+
+        @media (max-width: 480px) {
+          h1 {
+            font-size: 1.5rem;
+          }
+
+          iframe {
+            height: 250px;
+          }
+
+          img {
+            max-width: 80%;
+          }
+        }
+      `}</style>
     </div>
   );
 };
